@@ -1,0 +1,406 @@
+{
+	"info": {
+		"_postman_id": "610e6038-093c-4067-8213-fc54dbd88158",
+		"name": "Lab Loan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "For all role",
+			"item": [
+				{
+					"name": "Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/check",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"check"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get tools",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tools",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tools"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "For admin",
+			"item": [
+				{
+					"name": "Admin login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"firman\",\r\n    \"password\":\"firman123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add tool",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODM3ODMzNzcsInBhc3N3b3JkIjoiZmlybWFuMTIzIiwicm9sZSI6ImFkbWluIiwidXNlcm5hbWUiOiJmaXJtYW4ifQ.-SK3SZesJkuc_DiyJxe5eJCHZidWirOatFnw68nvvCg",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"suntikan\",\r\n    \"serial_number\":\"stk22C\",\r\n    \"stock\":20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/tool",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"tool"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete tool",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODM0OTY0MDQsInBhc3N3b3JkIjoiZGV3aXB1dHJpIiwicm9sZSI6InN0dWRlbnQiLCJ1c2VybmFtZSI6ImRld2lAZ21haWwuY29tIn0.g8bTXJ_UYLTcvoVWrKzZe_5ToYCGE4vfejwczA6j9Jk",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/admin/tool/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"tool",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify stock",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODM0OTQ3ODcsInBhc3N3b3JkIjoiaGFuYWZpYWgiLCJyb2xlIjoiYWRtaW4iLCJ1c2VybmFtZSI6ImhhbmEifQ.iCo7bleW64kumjssYUciboawGfK7SFf-oKaBeHllea0",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stock\":-2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/tool/stock/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"tool",
+								"stock",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "For user",
+			"item": [
+				{
+					"name": "User register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"dewi\",\r\n    \"nim\":\"mhs2022.2026\",\r\n    \"email\":\"dewi@gmail.com\",\r\n    \"password\":\"dewiputri\",\r\n    \"class\":\"informatic01\",\r\n    \"role\":\"student\",\r\n    \"status\":\"active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"dewi@gmail.com\",\r\n    \"password\":\"dewiputri\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add loan",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODM3ODM0MDYsInBhc3N3b3JkIjoiZGV3aXB1dHJpIiwicm9sZSI6InN0dWRlbnQiLCJ1c2VybmFtZSI6ImRld2lAZ21haWwuY29tIn0.NyITllws_PAimLjcZZ4uRYJ--Z73WA94AJFnvrZBQ-k",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_user\":1,\r\n    \"id_tool\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/loan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"loan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get loans",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODM3ODM0MDYsInBhc3N3b3JkIjoiZGV3aXB1dHJpIiwicm9sZSI6InN0dWRlbnQiLCJ1c2VybmFtZSI6ImRld2lAZ21haWwuY29tIn0.NyITllws_PAimLjcZZ4uRYJ--Z73WA94AJFnvrZBQ-k",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/loan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"loan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Returning",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODM3ODM0MDYsInBhc3N3b3JkIjoiZGV3aXB1dHJpIiwicm9sZSI6InN0dWRlbnQiLCJ1c2VybmFtZSI6ImRld2lAZ21haWwuY29tIn0.NyITllws_PAimLjcZZ4uRYJ--Z73WA94AJFnvrZBQ-k",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_loan\":1,\r\n    \"id_user\":1,\r\n    \"id_tool\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/return",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"return"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get returns",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODM3ODM0MDYsInBhc3N3b3JkIjoiZGV3aXB1dHJpIiwicm9sZSI6InN0dWRlbnQiLCJ1c2VybmFtZSI6ImRld2lAZ21haWwuY29tIn0.NyITllws_PAimLjcZZ4uRYJ--Z73WA94AJFnvrZBQ-k",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/return",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"return"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
